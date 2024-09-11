@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-int fibonacci_iter(int times);
-int fibonacci_recur(int times);
+unsigned long long fibonacci_iter(int times);
+unsigned long long fibonacci_recur(int times);
 
 int main(int argc, char *argv[])
 {
@@ -36,9 +36,9 @@ int main(int argc, char *argv[])
     // Compute the Nth Fibonacci number according to "i" or "r"
     // Fibonacci sequence starts with 0 and 1
     if (second_arg == 'i') 
-        printf("%d\n", fibonacci_iter(N));
+        printf("%llu\n", fibonacci_iter(N));
     else if (second_arg == 'r')
-        printf("%d\n", fibonacci_recur(N));
+        printf("%llu\n", fibonacci_recur(N));
 
     fclose(file);
     free(third_arg);
@@ -46,16 +46,16 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-int fibonacci_iter(int times)
+unsigned long long fibonacci_iter(int times)
 {
     if (times == 1)
         return 0;
 
     --times;
 
-    int t1 = 0;
-    int t2 = 1;
-    int next_term = t1 + t2;
+    unsigned long long t1 = 0;
+    unsigned long long t2 = 1;
+    unsigned long long next_term = t1 + t2;
 
     for (int i = 3; i <= times; ++i)
     {
@@ -67,7 +67,7 @@ int fibonacci_iter(int times)
     return next_term;
 }
 
-int fibonacci_recur(int times)
+unsigned long long fibonacci_recur(int times)
 {
     if (times == 1)
         return 0;
