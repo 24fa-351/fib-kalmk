@@ -66,7 +66,7 @@ int fib_i(int times)
 
 int fib_r(int times)
 {
-    if (times == 1){
+    if (times == 1) {
         return 0;
     }
 
