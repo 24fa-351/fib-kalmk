@@ -6,32 +6,25 @@ int fib_i(int times);
 int fib_r(int times);
 
 int main(int argc, char *argv[]) {
-    int first_arg = atoi(argv[1]);
+    int index = atoi(argv[1]);
+    char fib_method = argv[2][0];
+    char *file_name = argv[3];
 
-    char *temp = malloc(sizeof(argv[2]));
-    strcpy(temp, argv[2]);
-    char second_arg = temp[0];
-    free(temp);
-
-    char *third_arg = malloc(sizeof(argv[3]));
-    strcpy(third_arg, argv[3]);
-
-    FILE *file = fopen(third_arg, "r");
+    FILE *file = fopen(file_name, "r");
 
     char data[3];
     fgets(data, 3, file);
     int file_integer = atoi(data);
 
-    int N = first_arg + file_integer;
+    int N = index + file_integer;
 
-    if (second_arg == 'i') {
+    if (fib_method == 'i') {
         printf("%d\n", fib_i(N));
-    } else if (second_arg == 'r') {
+    } else if (fib_method == 'r') {
         printf("%d\n", fib_r(N));
     }
 
     fclose(file);
-    free(third_arg);
 
     return 0;
 }
