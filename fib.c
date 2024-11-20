@@ -6,6 +6,10 @@ int fib_i(int times);
 int fib_r(int times);
 
 int main(int argc, char *argv[]) {
+    if (argc != 4) {
+        printf("Usage: %s <index> <fib_method> <file_name>\n", argv[0]);
+        return 1;
+    }
     int index = atoi(argv[1]);
     char fib_method = argv[2][0];
     char *file_name = argv[3];
