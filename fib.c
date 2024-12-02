@@ -16,8 +16,8 @@ int main(int argc, char *argv[]) {
 
     FILE *file = fopen(file_name, "r");
 
-    char data[3];
-    fgets(data, 3, file);
+    char data[100];
+    fgets(data, sizeof(data), file);
     int file_integer = atoi(data);
 
     int N = index + file_integer;
@@ -44,15 +44,15 @@ int fib_i(int times) {
 
     --times;
 
-    int t1 = 0;
-    int t2 = 1;
+    int prev1 = 0;
+    int prev2 = 1;
 
-    int next_term = t1 + t2;
+    int next_term = prev1 + prev2;
 
     for (int ix = 3; ix <= times; ++ix) {
-        t1 = t2;
-        t2 = next_term;
-        next_term = t1 + t2;
+        prev1 = prev2;
+        prev2 = next_term;
+        next_term = prev1 + prev2;
     }
 
     return next_term;
